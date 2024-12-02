@@ -3,6 +3,7 @@ use std::{env::args, process::exit};
 use utils::{prepare_for, GetInputError};
 
 mod day1;
+mod day2;
 mod utils;
 
 fn main() {
@@ -18,6 +19,14 @@ fn main() {
                 "1" => match puzzle.as_str() {
                     "1" => day1::puzzle1(run_sample),
                     "2" => day1::puzzle2(run_sample),
+                    _ => {
+                        eprintln!("Puzzle {} for day {} not solved yet", puzzle, day);
+                        exit(1)
+                    }
+                },
+                "2" => match puzzle.as_str() {
+                    "1" => day2::puzzle1(run_sample),
+                    "2" => day2::puzzle2(run_sample),
                     _ => {
                         eprintln!("Puzzle {} for day {} not solved yet", puzzle, day);
                         exit(1)
