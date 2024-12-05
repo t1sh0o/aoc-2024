@@ -2,9 +2,11 @@ use std::{env::args, process::exit};
 
 use utils::{prepare_for, GetInputError};
 
+mod utils;
+
 mod day1;
 mod day2;
-mod utils;
+mod day3;
 
 fn main() {
     let day = args().nth(1).expect("2 arguments yo be passed");
@@ -27,6 +29,14 @@ fn main() {
                 "2" => match puzzle.as_str() {
                     "1" => day2::puzzle1(run_sample),
                     "2" => day2::puzzle2(run_sample),
+                    _ => {
+                        eprintln!("Puzzle {} for day {} not solved yet", puzzle, day);
+                        exit(1)
+                    }
+                },
+                "3" => match puzzle.as_str() {
+                    "1" => day3::puzzle1(run_sample),
+                    "2" => day3::puzzle2(run_sample),
                     _ => {
                         eprintln!("Puzzle {} for day {} not solved yet", puzzle, day);
                         exit(1)
